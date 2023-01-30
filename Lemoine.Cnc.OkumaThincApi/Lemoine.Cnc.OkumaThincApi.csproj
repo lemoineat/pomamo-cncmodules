@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <Sdk Name="Microsoft.Build.CentralPackageVersions" Version="2.0.1" />
+
+  <PropertyGroup>
+    <TargetFrameworks>net40;net48</TargetFrameworks>
+    <AssemblyOriginatorKeyFile>..\..\..\PulseKeyFile.snk</AssemblyOriginatorKeyFile>
+    <PlatformTarget>x86</PlatformTarget><!-- external Okuma libraries are in x86, this will avoid a warning or possible error -->
+    <!-- uncomment the DefineConstants to include the okuma dll at the end of the file (static links) -->
+    <!--DefineConstants>STATIC_OKUMA_LOAD</DefineConstants-->
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' != 'net40'">
+    <ProjectReference Include="..\..\..\Libraries\Lemoine.Core\Lemoine.Core.csproj" AdditionalProperties="TargetFramework=netstandard2.0" />
+    <ProjectReference Include="..\..\Lemoine.Cnc.ICncModule\Lemoine.Cnc.ICncModule.csproj" AdditionalProperties="TargetFramework=netstandard2.0" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net40'">
+    <ProjectReference Include="..\..\..\Libraries\Lemoine.Core\Lemoine.Core.csproj" AdditionalProperties="TargetFramework=net40" />
+    <ProjectReference Include="..\..\Lemoine.Cnc.ICncModule\Lemoine.Cnc.ICncModule.csproj" AdditionalProperties="TargetFramework=net40" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Okuma.Scout">
+      <HintPath>..\..\3rdParty\Okuma\Okuma.Scout.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup Condition="$(DefineConstants.Contains('STATIC_OKUMA_LOAD'))">
+  <!-- change the path to select the desired version -->
+    <Reference Include="Okuma.CGCMDAPI">
+      <HintPath>..\..\3rdParty\Okuma\1.22.5\Okuma.CGCMDAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="Okuma.CGDATAPI">
+      <HintPath>..\..\3rdParty\Okuma\1.22.5\Okuma.CGDATAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="Okuma.CLCMDAPI">
+      <HintPath>..\..\3rdParty\Okuma\1.22.5\Okuma.CLCMDAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="Okuma.CLDATAPI">
+      <HintPath>..\..\3rdParty\Okuma\1.22.5\Okuma.CLDATAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="Okuma.CMCMDAPI">
+      <HintPath>..\..\3rdParty\Okuma\1.22.5\Okuma.CMCMDAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="Okuma.CMDATAPI">
+      <HintPath>..\..\3rdParty\Okuma\1.22.5\Okuma.CMDATAPI.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  </Project>

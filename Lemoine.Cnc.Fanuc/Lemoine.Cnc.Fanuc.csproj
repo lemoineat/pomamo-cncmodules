@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <Sdk Name="Microsoft.Build.CentralPackageVersions" Version="2.0.1" />
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyOriginatorKeyFile>..\..\..\PulseKeyFile.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Libraries\Lemoine.Core\Lemoine.Core.csproj" AdditionalProperties="TargetFramework=netstandard2.0" />
+    <ProjectReference Include="..\..\Lemoine.Cnc.ICncModule\Lemoine.Cnc.ICncModule.csproj" AdditionalProperties="TargetFramework=netstandard2.0" />
+    <ProjectReference Include="..\..\Libraries\Lemoine.Cnc.CncAlarm\Lemoine.Cnc.CncAlarm.csproj" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <None Include="..\..\..\CNC\3rdParty\Fanuc\fwlib0DN.dll" CopyToOutputDirectory="Always" />
+    <None Include="..\..\..\CNC\3rdParty\Fanuc\Fwlib0i.dll" CopyToOutputDirectory="Always" />
+    <None Include="..\..\..\CNC\3rdParty\Fanuc\Fwlib0iB.dll" CopyToOutputDirectory="Always" />
+    <None Include="..\..\..\CNC\3rdParty\Fanuc\Fwlib0iD.dll" CopyToOutputDirectory="Always" />
+    <None Include="..\..\..\CNC\3rdParty\Fanuc\Fwlib150.dll" CopyToOutputDirectory="Always" />
+    <None Include="..\..\..\CNC\3rdParty\Fanuc\Fwlib15i.dll" CopyToOutputDirectory="Always" />
+    <None Include="..\..\..\CNC\3rdParty\Fanuc\Fwlib160.dll" CopyToOutputDirectory="Always" />
+    <None Include="..\..\..\CNC\3rdParty\Fanuc\Fwlib16W.dll" CopyToOutputDirectory="Always" />
+    <None Include="..\..\..\CNC\3rdParty\Fanuc\fwlib30i.dll" CopyToOutputDirectory="Always" />
+    <None Include="..\..\..\CNC\3rdParty\Fanuc\Fwlib32.dll" CopyToOutputDirectory="Always" />
+    <None Include="..\..\..\CNC\3rdParty\Fanuc\fwlibe1.dll" CopyToOutputDirectory="Always" />
+    <None Include="..\..\..\CNC\3rdParty\Fanuc\fwlibNCG.dll" CopyToOutputDirectory="Always" />
+    <None Include="..\..\..\CNC\3rdParty\Fanuc\Fwlibpm.dll" CopyToOutputDirectory="Always" />
+    <None Include="..\..\..\CNC\3rdParty\Fanuc\Fwlibpmi.dll" CopyToOutputDirectory="Always" />
+    <None Include="..\..\..\CNC\3rdParty\Fanuc\fwpmcalm.ini" CopyToOutputDirectory="Always" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <EmbeddedResource Include="murata_machine_errors.csv">
+      <LogicalName>murata_machine_errors.csv</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="niigata_machine_errors.csv">
+      <LogicalName>niigata_machine_errors.csv</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="mori_seiki_machine_errors.csv">
+      <LogicalName>mori_seiki_machine_errors.csv</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+  
+</Project>

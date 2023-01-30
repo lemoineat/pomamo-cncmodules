@@ -1,0 +1,14 @@
+API(BOOL, SOLisConnected, (LONG));
+API(BOOL, SOLisReceiveBufferEmpty, (LONG));
+API(void, SOLSendPPInfo, (LONG, LPVOID, SHORT));
+API(void, SOLGetMessage, (LONG, SLMsg_t**));
+API(BOOL, SOLGoodTcpAddr, (LONG, LPCSTR));
+API(SHORT, SOLCloseConnection, (LONG));
+API(SHORT, SOLTryConnection, (LONG, LPCSTR));
+API(LONG, SOLCreate, ());
+API(void, SOLDelete, (LONG));
+API(bool, SOLTranslateMCMessage, (LONG, LONG, SHORT, BSTR*));
+API(void, SOLSetConnectionMode, (LONG, HANDLE, LONG));
+API(void, SOLGetMessageEx, (LONG, SHORT*, SHORT*, LPSTR));
+API(SHORT, SOLSendMessage, (LONG, SLMsg_t*, SHORT));
+API(SHORT, SOLSendMessageEx, (LONG, SHORT, SHORT, LPCSTR));
